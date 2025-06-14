@@ -13,46 +13,49 @@ public class UserDAO {
 	private String dbUser = "root";
 	private String dbPassword = "password";
 	
-	public boolean verifyUser(String userId, String password) {
+	public boolean verifyUser(String userIdOrUsername, String password) {
 		try(
 				Connection con = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
 				) {
-			String sqlQuery = "SELECT * FROM myusers WHERE userId=? AND password=?";
-			PreparedStatement ps = con.prepareStatement(sqlQuery);
-			ps.setString(1, userId);
-			ps.setString(2, password);
-			ResultSet rs = ps.executeQuery();
-			return rs.next();
+			String sqlQuery = "SELECT * FROM myusers WHERE (userId=? OR username=?) AND password=?";
+	        PreparedStatement ps = con.prepareStatement(sqlQuery);
+	        ps.setString(1, userIdOrUsername);
+	        ps.setString(2, userIdOrUsername);
+	        ps.setString(3, password);
+	        ResultSet rs = ps.executeQuery();
+	        return rs.next();
 		} catch(Exception ex) {
 			ex.printStackTrace();
 			return false;
 		}
 	}
 	
-	public void updateOTP(String userId, String otp) {
+	public void updateOTP(String userIdOrUsername, String otp) {
 		try(
 				Connection con = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword)
 				) {
-			String sqlQuery = "UPDATE myusers SET otp=? WHERE userId=?";
-			PreparedStatement ps = con.prepareStatement(sqlQuery);
-			ps.setString(1, otp);
-			ps.setString(2, userId);
-			ps.executeUpdate();
+			String sqlQuery = "UPDATE myusers SET otp=? WHERE userId=? OR username=?";
+	        PreparedStatement ps = con.prepareStatement(sqlQuery);
+	        ps.setString(1, otp);
+	        ps.setString(2, userIdOrUsername);
+	        ps.setString(3, userIdOrUsername);
+	        ps.executeUpdate();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 	
-	public boolean verifyOTP(String userId, String otp) {
+	public boolean verifyOTP(String userIdOrUsername, String otp) {
 		try (
 				Connection con = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
 				){
-			String sqlQuery = "SELECT * FROM myusers WHERE userId=? AND otp=?";
-			PreparedStatement ps = con.prepareStatement(sqlQuery);
-			ps.setString(1, userId);
-			ps.setString(2, otp);
-			ResultSet rs = ps.executeQuery();
-			return rs.next();
+			String sqlQuery = "SELECT * FROM myusers WHERE (userId=? OR username=?) AND otp=?";
+	        PreparedStatement ps = con.prepareStatement(sqlQuery);
+	        ps.setString(1, userIdOrUsername);
+	        ps.setString(2, userIdOrUsername);
+	        ps.setString(3, otp);
+	        ResultSet rs = ps.executeQuery();
+	        return rs.next();
 		} catch(Exception ex) {
 			ex.printStackTrace();
 			return false;
