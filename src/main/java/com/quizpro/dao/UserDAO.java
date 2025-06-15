@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDAO {
-	private String jdbcUrl = "jdbc:mysql://localhost:6990/quizprodb";
+	// use hibernate here. move these to app.pro
+	private String jdbcUrl = "jdbc:mysql://localhost:3306/proquiz?useSSL=false";
 	private String dbUser = "root";
-	private String dbPassword = "password";
+	private String dbPassword = "umajlc@123";
 	
 	public boolean verifyUser(String userIdOrUsername, String password) {
 		try(

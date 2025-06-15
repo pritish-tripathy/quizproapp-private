@@ -20,6 +20,7 @@ public class User {
 		this.city = city;
 	}
 
+	//dont declare getter setter, use lombok.
 	public String getUserId() {
 		return userId;
 	}

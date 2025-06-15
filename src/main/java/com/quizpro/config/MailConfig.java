@@ -10,13 +10,14 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class MailConfig {
 
+	//move to application.properties this bean,, keep this class as empty.
 	@Bean
 	public JavaMailSender javaMailSenderImpl() {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(465);
-		mailSender.setUsername("netproductionsinc888@gmail.com");
-		mailSender.setPassword("elvf vmyc cqqy qstk");
+		mailSender.setUsername("g.umamahesh2@gmail.com");
+		mailSender.setPassword("eicl mckw tpax mjxt");
 		
 		Properties prop = mailSender.getJavaMailProperties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
