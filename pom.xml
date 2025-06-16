@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>quizproapplication</groupId>
-	<artifactId>quizproapplication</artifactId>
+	<artifactId>quizproapplication_pritish</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>quizproapplication Maven Webapp</name>
+	<name>quizproapplication_pritish</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
