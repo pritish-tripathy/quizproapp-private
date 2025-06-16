@@ -15,5 +15,5 @@ CREATE TABLE myusers (
 
 **Insert Records**
 ```
-
+INSERT INTO myusers (userId, username, email, password, city) VALUES ('PT1023', 'pritish-tripathy', 'pritishtripathy.cse@gmail.com', 'Ppt@123', 'bengaluru');
 ```
