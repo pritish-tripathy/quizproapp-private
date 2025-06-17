@@ -41,4 +41,8 @@ public class UserService {
 		String body = "Your QuizPro OTP Code is "+otp+" Thank You";
 		mailService.sendMail(from, to, subject, body);
 	}
+	
+	public boolean updatePassword(String userIdOrUsername, String newPassword) {
+	    return userDAO.updatePassword(userIdOrUsername, newPassword);
+	}
 }

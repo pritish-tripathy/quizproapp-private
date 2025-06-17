@@ -19,6 +19,16 @@ public class UserController {
 	public String getLoginPage() {
 		return "LoginPage";
 	}
+	
+	@GetMapping("/forgotPassword")
+	public String showResetPasswordForm() {
+	    return "ResetPassword";
+	}
+	
+	@GetMapping("/backLogin")
+	public String backToLoginPage() {
+		return "LoginPage";
+	}
 
 	@PostMapping("/verifyUser")
 	public String verifyUser(HttpServletRequest request, HttpSession session) {
@@ -48,5 +58,19 @@ public class UserController {
 			request.setAttribute("error", "Invalid OTP");
 			return "SubmitOTP";
 		}
+	}
+	
+	@PostMapping("/resetPassword")
+	public String resetPassword(HttpServletRequest request) {
+	    String userIdOrUsername = request.getParameter("userIdOrUsername");
+	    String newPassword = request.getParameter("newPassword");
+
+	    boolean updated = userService.updatePassword(userIdOrUsername, newPassword);
+	    if (updated) {
+	        request.setAttribute("msg", "Password successfully updated.");
+	    } else {
+	        request.setAttribute("errorMsg", "Failed to update password. User not found.");
+	    }
+	    return "ResetPassword";
 	}
 }

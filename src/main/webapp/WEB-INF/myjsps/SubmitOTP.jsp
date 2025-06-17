@@ -15,7 +15,7 @@
 	integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
 	crossorigin="anonymous"></script>
 </head>
-<body style="margin: 0; padding: 0;">
+<body style="margin: 0; padding: 0; background-color: #FEEBF6"">
 	<div style="background-color: black;">
 		<h1
 			style="text-align: center; color: white; margin: 0; padding: 10px 0;">
@@ -27,12 +27,12 @@
 		<form method="post" action="verifyOTP">
 			<table>
 				<tr>
-					<td>Enter OTP:</td>
-					<td><input type="text" name="otp" /></td>
+					<td><label class="form-label">Submit OTP </label></td>
+					<td><input type="text" name="otp" class="form-control" id="exampleFormControlInput1"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						value="Submit" /></td>
+						value="Submit"  class="btn btn-primary" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><p style="color: red">${error}</p></td>
