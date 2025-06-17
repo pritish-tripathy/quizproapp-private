@@ -28,7 +28,8 @@ public class UserController {
 		if (userService.verifyUser(userId, password)) {
 			String otp = userService.generateOTP();
 			userService.updateOTP(userId, otp);
-			userService.sendEmail("pritishtripathy.cse@gmail.com", otp); //dont hard code// read from DB.
+			String email = userService.getEmailByUserIdOrUsername(userId);
+			userService.sendEmail(email, otp);
 			session.setAttribute("userId", userId);
 			return "SubmitOTP";
 		} else {
