@@ -16,8 +16,8 @@ public class MailConfig {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(465);
-		mailSender.setUsername("g.umamahesh2@gmail.com");
-		mailSender.setPassword("eicl mckw tpax mjxt");
+		mailSender.setUsername("netproductionsinc888@gmail.com");
+		mailSender.setPassword("cnie pitt apuk xemp");
 		
 		Properties prop = mailSender.getJavaMailProperties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -29,3 +29,7 @@ public class MailConfig {
 		return mailSender;
 	}
 }
+
+
+// netproductionsinc888@gmail.com
+// cnie pitt apuk xemp
