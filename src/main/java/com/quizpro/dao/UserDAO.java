@@ -16,7 +16,9 @@ public class UserDAO {
 	DataSource dataSource;
 
 	public boolean verifyUser(String userIdOrUsername, String password) {
-		try (Connection con = dataSource.getConnection();) {
+		try (
+				Connection con = dataSource.getConnection();
+				) {
 			String sqlQuery = "SELECT * FROM myusers WHERE (userId=? OR username=?) AND password=?";
 			PreparedStatement ps = con.prepareStatement(sqlQuery);
 			ps.setString(1, userIdOrUsername);
@@ -31,7 +33,9 @@ public class UserDAO {
 	}
 
 	public void updateOTP(String userIdOrUsername, String otp) {
-		try (Connection con = dataSource.getConnection();) {
+		try (
+				Connection con = dataSource.getConnection();
+				) {
 			String sqlQuery = "UPDATE myusers SET otp=? WHERE userId=? OR username=?";
 			PreparedStatement ps = con.prepareStatement(sqlQuery);
 			ps.setString(1, otp);
@@ -44,7 +48,9 @@ public class UserDAO {
 	}
 
 	public boolean verifyOTP(String userIdOrUsername, String otp) {
-		try (Connection con = dataSource.getConnection();) {
+		try (
+				Connection con = dataSource.getConnection();
+				) {
 			String sqlQuery = "SELECT * FROM myusers WHERE (userId=? OR username=?) AND otp=?";
 			PreparedStatement ps = con.prepareStatement(sqlQuery);
 			ps.setString(1, userIdOrUsername);
@@ -60,7 +66,10 @@ public class UserDAO {
 
 	public String getEmailByUserIdOrUsername(String userIdOrUsername) {
 		String sql = "SELECT email FROM myusers WHERE userId = ? OR username = ?";
-		try (Connection con = dataSource.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+		try (
+				Connection con = dataSource.getConnection(); 
+				PreparedStatement ps = con.prepareStatement(sql)
+						) {
 			ps.setString(1, userIdOrUsername);
 			ps.setString(2, userIdOrUsername);
 			ResultSet rs = ps.executeQuery();
